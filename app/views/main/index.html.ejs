@@ -1,0 +1,20 @@
+<!-- Lets talk about geddy -->
+<div class="hero-unit geddy-welcome-box">
+  <form class="form-horizontal" action="<%- urlFor('upload') %>" method="POST" enctype="multipart/form-data">
+      <div class="control-group">
+          <label for="name" class="control-label">Name</label>
+          <div class="controls">
+              <%- contentTag('input', '', {type:'text', class:'span6', name:'name', required:'required'}) %>
+          </div>
+      </div>
+      <div class="control-group">
+          <label for="upload" class="control-label">Browse</label>
+          <div class="controls">
+              <%- contentTag('input', null, {type:'file', class:'span6', name:'file'}) %>
+          </div>
+      </div>
+      <div class="form-actions">
+          <%- contentTag('input', 'Upload', {type: 'submit', class: 'btn btn-primary'}) %>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+{
+  "name": "geddy_uploader",
+  "version": "0.0.1",
+  "author": "",
+  "dependencies": {
+    "formidable": "1.0.x"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "0.8.x"
+  }
+}
