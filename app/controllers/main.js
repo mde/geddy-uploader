@@ -30,13 +30,19 @@ var Main = function () {
 
   this.upload = function(req, resp, params) {
     if (req.method.toLowerCase() == 'post') {
+      
+      // formidable currently does not work with Node 0.10
+      // so we have to set node to old-style streaming behaviour by pausing and resuming the request
+      req.pause();
+      req.resume();
+      
       var form = new formidable.IncomingForm();
 
       form.on('progress', function(bytesReceived, bytesExpected) {
         console.log('progress: '+bytesReceived + ' ' + bytesExpected);
       });
 
-      form.parse(req.req, function(err, fields, files){
+      form.parse(req, function(err, fields, files){
         if (err) {
           console.log(err);
           self.respond({params:params,error:err},{format:'json'});
